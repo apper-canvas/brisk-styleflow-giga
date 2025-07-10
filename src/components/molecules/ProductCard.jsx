@@ -123,18 +123,18 @@ const ProductCard = ({ product }) => {
           <p className="text-sm text-gray-600 line-clamp-2 mt-1">{product.name}</p>
           
           <div className="flex items-center gap-2 mt-2">
-            {product.discountPrice ? (
+{product.discountPrice ? (
               <>
                 <span className="text-lg font-semibold text-secondary">
-                  ₹{product.discountPrice.toLocaleString()}
+                  ₹{(product.discountPrice || 0).toLocaleString()}
                 </span>
                 <span className="text-sm text-gray-500 line-through">
-                  ₹{product.price.toLocaleString()}
+                  ₹{(product.price || 0).toLocaleString()}
                 </span>
               </>
             ) : (
               <span className="text-lg font-semibold text-secondary">
-                ₹{product.price.toLocaleString()}
+                ₹{(product.price || 0).toLocaleString()}
               </span>
             )}
           </div>
