@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Button from "@/components/atoms/Button";
 import SearchBar from "@/components/molecules/SearchBar";
 import ApperIcon from "@/components/ApperIcon";
+import { AuthContext } from "../../App";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const { logout } = useContext(AuthContext);
 
   const categories = [
     { name: "Men", path: "/category/men" },
@@ -73,6 +75,16 @@ const Header = () => {
               <span className="absolute -top-1 -right-1 w-5 h-5 bg-primary text-white text-xs rounded-full flex items-center justify-center">
                 0
               </span>
+</Button>
+
+            {/* Logout Button */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={logout}
+              className="p-2 text-gray-600 hover:text-primary"
+            >
+              <ApperIcon name="LogOut" size={20} />
             </Button>
 
             {/* Mobile Menu Button */}

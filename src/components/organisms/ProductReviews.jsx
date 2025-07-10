@@ -71,14 +71,18 @@ const ProductReviews = ({ productId }) => {
 
     try {
       if (editingReview) {
-        await updateReview(editingReview.Id, {
-          ...formData,
+await updateReview(editingReview.Id, {
+          userName: formData.userName,
+          rating: formData.rating,
+          comment: formData.comment,
           productId
         });
         toast.success("Review updated successfully!");
       } else {
         await addReview({
-          ...formData,
+          userName: formData.userName,
+          rating: formData.rating,
+          comment: formData.comment,
           productId
         });
         toast.success("Review added successfully!");
@@ -95,7 +99,7 @@ const ProductReviews = ({ productId }) => {
 
   const handleEditReview = (review) => {
     setEditingReview(review);
-    setFormData({
+setFormData({
       userName: review.userName,
       rating: review.rating,
       comment: review.comment

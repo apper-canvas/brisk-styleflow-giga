@@ -15,7 +15,7 @@ const Cart = () => {
   const [error, setError] = useState("");
   const [showCheckoutModal, setShowCheckoutModal] = useState(false);
   const [checkoutLoading, setCheckoutLoading] = useState(false);
-  const loadCartItems = async () => {
+const loadCartItems = async () => {
     try {
       setLoading(true);
       setError("");

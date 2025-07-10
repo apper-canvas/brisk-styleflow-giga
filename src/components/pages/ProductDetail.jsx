@@ -68,7 +68,7 @@ const loadProduct = async () => {
 
     setIsAddingToCart(true);
     try {
-      await addToCart({
+await addToCart({
         productId: product.Id,
         quantity,
         size: selectedSize,
